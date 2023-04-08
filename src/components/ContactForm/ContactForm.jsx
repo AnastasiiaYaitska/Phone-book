@@ -3,24 +3,29 @@ import { GrPhone, GrUserManager } from 'react-icons/gr';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selector';
-import { addContact } from 'redux/contactsSlice';
+import { selectContacts } from 'redux/selector';
+// import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { Form, Label, Input, SubmitBtn } from './ContactForm.styled';
 
 export const ContactsForm = () => {
   const nameInputId = nanoid();
   const numberInputId = nanoid();
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handlerSubmit = event => {
     event.preventDefault();
     setName('');
-    setNumber('');
+    setPhone('');
+    const newContact = {
+      name,
+      phone,
+    };
     if (checkNameDuplicate(name)) {
-      dispatch(addContact(name, number));
+      dispatch(addContact(newContact));
     }
     event.currentTarget.reset();
   };
@@ -61,11 +66,11 @@ export const ContactsForm = () => {
         type="tel"
         name="number"
         id={numberInputId}
-        value={number}
+        value={phone}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
-        onChange={e => setNumber(e.target.value)}
+        onChange={e => setPhone(e.target.value)}
       />
 
       <SubmitBtn type="submit">Add contact</SubmitBtn>
