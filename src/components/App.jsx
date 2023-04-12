@@ -16,6 +16,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
   return (
     <Layout>
       <h1>Phonebook</h1>
