@@ -1,9 +1,9 @@
 import { ListContact } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selector';
+import { selectContacts, selectFilter } from 'redux/contacts/selector';
 import { Contact } from 'components/Contact/Contact';
 
-export const Contacts = () => {
+const Contacts = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
   const filterContacts = contacts.filter(({ name }) =>
@@ -18,3 +18,5 @@ export const Contacts = () => {
     </ListContact>
   );
 };
+
+export default Contacts;

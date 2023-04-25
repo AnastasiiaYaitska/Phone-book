@@ -3,11 +3,11 @@ import { GrPhone, GrUserManager } from 'react-icons/gr';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selector';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selector';
+import { addContact } from 'redux/contacts/operations';
 import { Form, Label, Input, SubmitBtn } from './ContactForm.styled';
 
-export const ContactsForm = () => {
+const ContactsForm = () => {
   const nameInputId = nanoid();
   const numberInputId = nanoid();
   const [name, setName] = useState('');
@@ -76,3 +76,5 @@ export const ContactsForm = () => {
     </Form>
   );
 };
+
+export default ContactsForm;
