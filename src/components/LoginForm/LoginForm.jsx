@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { login } from 'redux/auth/operations';
+import { logIn } from 'redux/auth/operations';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const LoginForm = () => {
   const initialValues = { password: '', email: '' };
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(login(values));
+    dispatch(logIn(values));
     console.log(values);
     resetForm();
   };

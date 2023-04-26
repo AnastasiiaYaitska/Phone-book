@@ -11,17 +11,17 @@ const ContactsForm = () => {
   const nameInputId = nanoid();
   const numberInputId = nanoid();
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
   const handlerSubmit = event => {
     event.preventDefault();
     setName('');
-    setPhone('');
+    setNumber('');
     const newContact = {
       name,
-      phone,
+      number,
     };
     if (checkNameDuplicate(name)) {
       dispatch(addContact(newContact));
@@ -65,11 +65,11 @@ const ContactsForm = () => {
         type="tel"
         name="number"
         id={numberInputId}
-        value={phone}
+        value={number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
-        onChange={e => setPhone(e.target.value)}
+        onChange={e => setNumber(e.target.value)}
       />
 
       <SubmitBtn type="submit">Add contact</SubmitBtn>

@@ -12,8 +12,8 @@ const Contacts = () => {
 
   return (
     <ListContact>
-      {filterContacts.map(({ name, id, phone }) => {
-        return <Contact key={id} name={name} phone={phone} id={id} />;
+      {filterContacts.map(({ name, id, number }) => {
+        return <Contact key={id} name={name} phone={number} id={id} />;
       })}
     </ListContact>
   );

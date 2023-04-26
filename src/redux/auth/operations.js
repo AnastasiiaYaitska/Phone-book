@@ -28,13 +28,42 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk(
+export const logIn = createAsyncThunk(
   'users/login',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(data.token);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logOut = createAsyncThunk('users/logout', async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.post('/users/logout');
+    // After a successful logout, remove the token from the HTTP header
+    clearAuthHeader();
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const fetchCurrentUser = createAsyncThunk(
+  'users/current',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue(); //in case if customer is logged out, we don't have to send a new request so we make reject
+    }
+    setAuthHeader(persistedToken);
+    try {
+      const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
