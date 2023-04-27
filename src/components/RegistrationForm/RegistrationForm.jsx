@@ -1,15 +1,19 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as yup from 'yup';
+import { Grid } from '@mui/material';
 import { register } from 'redux/auth/operations';
+import TextFieldWrapper from 'components/FormTextField/TextFieldWrapper';
+import ButtonWrapper from 'components/ButtonWrapper/ButtonWrapper';
+import { Wrap } from './RegistrationForm.styled';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(6).max(15).required(),
+    name: yup.string().required('Required'),
+    email: yup.string().email().required('Required'),
+    password: yup.string().min(6).max(15).required('Required'),
   });
 
   const initialValues = {
@@ -26,30 +30,30 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={schema}
-    >
-      <Form>
-        <label htmlFor="name"> Full Name</label>
-        <Field type="text" name="name" id="name" />
-        <ErrorMessage name="name" />
-        <br></br>
-        <label htmlFor="email">Email </label>
-
-        <Field type="email" name="email" id="email" />
-        <ErrorMessage name="email" />
-        <br></br>
-        <label htmlFor="password">Password </label>
-
-        <Field type="password" name="password" id="password" />
-        <ErrorMessage name="password" />
-        <br></br>
-
-        <button type="submit"> Submit</button>
-      </Form>
-    </Formik>
+    <Wrap maxWidth="xs">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={schema}
+      >
+        <Form>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextFieldWrapper name="name" label="Full Name" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextFieldWrapper name="email" label="Email" />
+            </Grid>
+            <Grid item xs={12}>
+              <TextFieldWrapper name="password" label="Password" />
+            </Grid>
+            <Grid item xs={12}>
+              <ButtonWrapper>Submit</ButtonWrapper>
+            </Grid>
+          </Grid>
+        </Form>
+      </Formik>
+    </Wrap>
   );
 };
 

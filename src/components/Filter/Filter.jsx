@@ -15,13 +15,8 @@ const Filter = () => {
 
   return (
     <>
-      <FilterLabel htmlFor={filterInputId}>Find contacts by name</FilterLabel>
-      <FilterInput
-        type="text"
-        id={filterInputId}
-        value={filter}
-        onChange={onChange}
-      />
+      <FilterLabel>Find contacts by name</FilterLabel>
+      <FilterInput type="text" value={filter} onChange={onChange} />
     </>
   );
 };

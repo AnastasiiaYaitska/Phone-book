@@ -1,15 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/selecros';
 import { useSelector } from 'react-redux';
+import ContactPhoneTwoToneIcon from '@mui/icons-material/ContactPhoneTwoTone';
+import { LinkNav, NavWrapper } from './Navigation.styled';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <div>
-      <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
-    </div>
+    <NavWrapper>
+      <LinkNav to="/">
+        <ContactPhoneTwoToneIcon color="inherit" fontSize="large" /> Home
+      </LinkNav>
+      {isLoggedIn && <LinkNav to="/contacts">Contacts</LinkNav>}
+    </NavWrapper>
   );
 };
 

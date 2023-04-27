@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
       /* background: black; */
-      background-image: url(https://i.pinimg.com/originals/61/3d/e7/613de7121e42fbd8788cd7d32dbf7efc.jpg);
-      
+      background-image: url("https://i.pinimg.com/originals/4f/f3/45/4ff345869cddc9611220c0874a8e7c6d.jpg");
+      background-position: top -50px right 70px;
       object-fit: cover;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,4 +29,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+   /* main{    
+  backdrop-filter: blur(5px);
+  width: 100%;
+} */
 `;

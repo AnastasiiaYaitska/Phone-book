@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { selectContactsIsLoading, selectContactsError } from 'redux/selector';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout/Layout';
-
+import { Container } from '@mui/material';
 import { fetchCurrentUser } from 'redux/auth/operations';
 import SharedLayout from './SharedLayout/SharedLayout';
 import PrivateRout from './PrivateRout';
@@ -25,37 +25,42 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
+    <>
+      <Container maxWidth="xl">
+        {/* // <Layout> */}
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
 
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/contacts"
-                component={<Registration />}
-              />
-            }
-          />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<Registration />}
+                />
+              }
+            />
 
-          <Route
-            path="/login"
-            element={
-              <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
-            }
-          />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
+              }
+            />
 
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRout redirectTo="/login" component={<ContactsPage />} />
-            }
-          />
-        </Route>
-      </Routes>
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRout redirectTo="/login" component={<ContactsPage />} />
+              }
+            />
+          </Route>
+        </Routes>
+      </Container>
+
       <GlobalStyle />
-    </Layout>
+    </>
+    // {/* // </Layout> */}
   );
 };
