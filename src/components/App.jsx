@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// import { selectContactsIsLoading, selectContactsError } from 'redux/selector';
+import { useDispatch } from 'react-redux';
+
 import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout/Layout';
+
 import { Container } from '@mui/material';
 import { fetchCurrentUser } from 'redux/auth/operations';
 import SharedLayout from './SharedLayout/SharedLayout';
@@ -27,7 +27,6 @@ export const App = () => {
   return (
     <>
       <Container maxWidth="xl">
-        {/* // <Layout> */}
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
@@ -61,6 +60,5 @@ export const App = () => {
 
       <GlobalStyle />
     </>
-    // {/* // </Layout> */}
   );
 };

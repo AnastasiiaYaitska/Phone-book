@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/selecros';
 import { useSelector } from 'react-redux';
 import ContactPhoneTwoToneIcon from '@mui/icons-material/ContactPhoneTwoTone';

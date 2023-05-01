@@ -5,7 +5,6 @@ import {
   selectContactsIsLoading,
 } from 'redux/contacts/selector';
 import { fetchContacts } from 'redux/contacts/operations';
-import ContactsForm from 'components/ContactForm/ContactForm';
 import ModalAddContact from 'components/Modal/Modal';
 import Filter from 'components/Filter/Filter';
 import Contacts from 'components/ContactList/ContactList';
@@ -22,7 +21,6 @@ const ContactsPage = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      {/* <ContactsForm /> */}
       <ModalAddContact />
       <h2>Contacts</h2>
       <Filter />
