@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Card from '@mui/material/Card';
 
 export const Item = styled.li`
   display: flex;
@@ -6,15 +7,19 @@ export const Item = styled.li`
   justify-content: space-between;
 `;
 
-export const BtnDelete = styled.button`
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-left: auto;
-  background-color: #2d76fc;
-  color: white;
-  &:hover {
-    background: #bbbdbf;
-  }
+// export const BtnDelete = styled.button`
+//   cursor: pointer;
+//   border: none;
+//   border-radius: 5px;
+//   padding: 5px 10px;
+//   margin-left: auto;
+//   background-color: #2d76fc;
+//   color: white;
+//   &:hover {
+//     background: #bbbdbf;
+//   }
+// `;
+
+export const CardBox = styled(Card)`
+  width: 270px;
 `;

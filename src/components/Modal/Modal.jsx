@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import ContactsForm from 'components/ContactForm/ContactForm';
+import AddContactsForm from 'components/AddContactForm/AddContactForm';
 import { Backdrop } from './Modal.styled';
 
 //Created  with Material  UI
@@ -28,7 +28,7 @@ const ModalAddContact = () => {
         aria-describedby="child-modal-description"
       >
         <Backdrop>
-          <ContactsForm onClose={handleClose} />
+          <AddContactsForm onClose={handleClose} />
         </Backdrop>
       </Modal>
     </>
