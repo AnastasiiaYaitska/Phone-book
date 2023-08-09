@@ -3,14 +3,17 @@ import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+html{
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+    background-image: url(./phonebook.jpeg);
+    /* background-position: center; */
+     background-size: cover;
       /* background: black; */
-      background-image: url("https://i.pinimg.com/originals/4f/f3/45/4ff345869cddc9611220c0874a8e7c6d.jpg");
-      background-position: top -50px right 70px;
         /* backdrop-filter: blur(5px); */
         width: 100%;
         height: 100%;
